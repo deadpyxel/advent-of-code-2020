@@ -11,7 +11,7 @@ def main() -> None:
     day_02.solve_day02()
     print("Solving Day 03 challenge...")
     day_03.solve_day03()
-    print("Solving Day 03 challenge...")
+    print("Solving Day 04 challenge...")
     day_04.solve_day04()
 
 
