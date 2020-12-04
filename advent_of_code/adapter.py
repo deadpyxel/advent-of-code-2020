@@ -5,10 +5,10 @@ from .config import AUTH_TOKEN
 from .config import BASE_URL
 
 
-def acquire_problem_input() -> str:
+def acquire_problem_input(day: int = 1) -> str:
     try:
         res = requests.get(
-            url=BASE_URL,
+            url=BASE_URL.replace("{}", str(day)),
             cookies={"session": AUTH_TOKEN},
         )
         res.raise_for_status()
