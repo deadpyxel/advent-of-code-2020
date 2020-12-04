@@ -18,7 +18,7 @@ def _count_trees(slope: Tuple[int, int], roadmap: List[str]) -> int:
     return count
 
 
-def solve_day03():
+def solve_day03() -> None:
     problem_input = acquire_problem_input(day=3)
     roadmap = problem_input.strip().split("\n")
 
