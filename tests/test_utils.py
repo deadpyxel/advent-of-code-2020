@@ -1,6 +1,8 @@
-import pytest
-from advent_of_code.utils import calc_product
 from typing import Collection
+
+import pytest
+
+from advent_of_code.utils import calc_product
 
 
 @pytest.mark.fast
