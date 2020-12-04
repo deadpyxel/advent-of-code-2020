@@ -1,6 +1,8 @@
 import requests
 from requests.exceptions import HTTPError
-from .config import BASE_URL, AUTH_TOKEN
+
+from .config import AUTH_TOKEN
+from .config import BASE_URL
 
 
 def acquire_problem_input() -> str:
