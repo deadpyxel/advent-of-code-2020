@@ -1,13 +1,19 @@
-from typing import Any
-from typing import Dict
 from typing import List
+from typing import Tuple
+from typing import TypedDict
 
 from advent_of_code.adapter import acquire_problem_input
 
 
+class PasswordEntry(TypedDict):
+    password: str
+    letter: str
+    criteria: Tuple[int, int]
+
+
 def _parse_problem2_input(
     raw_input: str,
-) -> List[Dict[str, Any]]:
+) -> List[PasswordEntry]:
     input_list = raw_input.rstrip().split("\n")
     processed_input = []
     for item in input_list:
@@ -18,16 +24,16 @@ def _parse_problem2_input(
         target_qty, target_letter = criteria.split()
         lower_limit, upper_limit = map(int, target_qty.split("-"))
         processed_input.append(
-            {
-                "password": password,
-                "letter": target_letter,
-                "criteria": (lower_limit, upper_limit),
-            }
+            PasswordEntry(
+                password=password,
+                letter=target_letter,
+                criteria=(lower_limit, upper_limit),
+            )
         )
     return processed_input
 
 
-def _find_valid_password_part1(password_list: List[Dict[str, Any]]) -> List[str]:
+def _find_valid_password_part1(password_list: List[PasswordEntry]) -> List[str]:
     return [
         it["password"]
         for it in password_list
@@ -35,7 +41,7 @@ def _find_valid_password_part1(password_list: List[Dict[str, Any]]) -> List[str]
     ]
 
 
-def _find_valid_password_part2(password_list: List[Dict[str, Any]]) -> List[str]:
+def _find_valid_password_part2(password_list: List[PasswordEntry]) -> List[str]:
     valid_passwords = []
     for password in password_list:
         current_password = password["password"]
