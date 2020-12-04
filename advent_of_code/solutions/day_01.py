@@ -1,5 +1,5 @@
 from itertools import combinations
-from typing import Iterable
+from typing import Collection
 from typing import List
 
 from advent_of_code.adapter import acquire_problem_input
@@ -9,7 +9,7 @@ from advent_of_code.utils import parse_input_as_integer
 
 def _filter_possible_combinations(
     original_list: List[int], n: int, combination_size: int = 2
-) -> List[Iterable[int]]:
+) -> List[Collection[int]]:
     return [
         comb
         for comb in combinations(original_list, r=combination_size)
